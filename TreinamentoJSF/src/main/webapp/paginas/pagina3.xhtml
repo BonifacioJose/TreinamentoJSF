@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    
+    <ui:composition template="/templates/principal.xhtml">        
+        <ui:define name="conteudo">            
+            <h:form id="containerResultado">
+                
+            <h:panelGroup layout="block">
+                <p:inputText value="#{operacaoController.valorUm}" />
+                <p:inputText value="#{operacaoController.valorDois}" />
+                <p:outputLabel value="#{operacaoController.resultado}"/>                 
+                
+                <p:commandButton value="+" actionListener="#{operacaoController.somar()}" update="containerResultado"/>
+                <p:commandButton value="-" actionListener="#{operacaoController.subtrair()}" update="containerResultado"/>
+                <p:commandButton value="/" actionListener="#{operacaoController.dividir}" update="containerResultado"/>
+                <p:commandButton value="*" actionListener="#{operacaoController.multiplicar}" update="containerResultado"/>
+                
+            </h:panelGroup>   
+            </h:form>    
+        </ui:define>    
+    </ui:composition>    
+    
+</html>
