@@ -1,4 +1,4 @@
-package br.com.wildflyquickstart;
+package br.com.treinamentojsf;
 
 import java.io.Serializable;
 import javax.faces.view.ViewScoped;
