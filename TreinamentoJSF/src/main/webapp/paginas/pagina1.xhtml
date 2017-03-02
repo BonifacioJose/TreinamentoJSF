@@ -7,7 +7,9 @@
       xmlns:p="http://primefaces.org/ui">
     <ui:composition template="/templates/principal.xhtml">        
         <ui:define name="conteudo">
-            <div>ae1</div>
+            <h:form>
+                <p:commandButton value="Salvar" action="#{indexController.salvar()}"/>
+            </h:form>
         </ui:define>
     </ui:composition>
 </html>
