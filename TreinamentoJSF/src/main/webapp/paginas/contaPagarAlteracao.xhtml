@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <ui:composition template="/templates/principal.xhtml">
+        <ui:define name="head">
+             <f:metadata>
+                 <f:viewParam name="id" value="#{contaPagarController.id}"/>
+                 <f:viewAction action="#{contaPagarController.init()}" />  
+            </f:metadata>  
+        </ui:define>    
+        
+        <ui:define name="conteudo">            
+            <h:form id="contaPagar">
+                <p:panelGrid columns="2">
+                    <p:outputLabel for="valor" value="Valor:"/>
+                    <p:inputNumber id="valor" value="#{contaPagarController.contaPagar.valor}">
+                        <f:validateLength minimum="2" />
+                    </p:inputNumber>    
+                    
+                    <p:outputLabel for="dtNascimento" value="Dt. Vencimento" />
+                    <p:calendar id="dtNascimento" value="#{contaPagarController.contaPagar.dataVencimento}" />                  
+                    
+               </p:panelGrid>   
+                
+                <p:commandButton id="salvar" action="#{contaPagarController.salvar()}" value="Salvar"/>
+                
+            </h:form>                
+        </ui:define>    
+        
+    </ui:composition>    
+</html>

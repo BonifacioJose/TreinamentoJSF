@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <ui:composition template="/templates/principal.xhtml">       
+        <ui:define name="head">
+            <f:metadata>
+                <f:viewParam name="id" value="#{editarClienteController.id}"/>
+                <f:viewAction action="#{editarClienteController.carregarParametros()}" />  
+            </f:metadata>    
+        </ui:define>
+        <ui:define name="conteudo">
+            <h:form>
+                <p:inputText value="#{editarClienteController.cliente.nome}"/>
+                <p:commandButton value="Salvar" actionListener="#{editarClienteController.salvar()}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</html>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    
+    <ui:composition template="/templates/principal.xhtml">
+        
+        <ui:define name="head">
+             <f:metadata>
+                 <f:viewParam name="id" value="#{clienteContaPagarController.id}"/>
+                 <f:viewAction action="#{clienteContaPagarController.init()}" />  
+            </f:metadata>  
+        </ui:define>  
+        
+         <ui:define name="conteudo">    
+             <h:form id="clienteContaPagar">
+                 <p:panelGrid columns="2" id="panelClienteContaPagar">
+                     <p:outputLabel for="cliente" value="Cliente:" />
+                     <p:selectOneMenu id="cliente" value="#{clienteContaPagarController.object.idCliente}" style="width:125px" >
+                         <f:selectItems value="#{clienteContaPagarController.clientes}" var="item" itemLabel="#{item.nome}" itemValue="#{item.id}"/>
+                        </p:selectOneMenu>
+                     
+                     <p:outputLabel for="conta" value="Conta:" />
+                     <p:selectOneMenu id="conta"  value="#{clienteContaPagarController.object.idContaPagar}" style="width:125px">
+                            <f:selectItems value="#{clienteContaPagarController.contas}" var="conta" itemLabel="#{conta.valor}" itemValue="#{conta.id}"/>
+                    </p:selectOneMenu>
+                 </p:panelGrid>   
+                 
+                 <p:commandButton id="salvar" action="#{clienteContaPagarController.salvar()}" value="Salvar"/>
+             </h:form>    
+         </ui:define>    
+        
+    </ui:composition>
+    
+    
+</html>

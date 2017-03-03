@@ -2,7 +2,7 @@ package br.com.treinamentojsf.entidade;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.sql.Date;
+import java.util.Date;
 import java.util.Objects;
 
 /**

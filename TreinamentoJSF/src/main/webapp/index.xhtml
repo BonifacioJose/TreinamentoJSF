@@ -7,7 +7,45 @@
       xmlns:p="http://primefaces.org/ui">
     <ui:composition template="templates/principal.xhtml">        
         <ui:define name="conteudo">
-            <div>ae</div>
+
+            <h:form id="containerCliente">
+                <p:panel id="panel" header="Novo Cliente">
+
+                    <p:messages id="msgs" />
+
+                    <h:panelGrid columns="2" cellpadding="5">
+                        <p:outputLabel for="nome" value="Nome:" />
+                        <p:inputText id="nome" value="#{clienteController.cliente.nome}" required="true" label="nome">
+                            <f:validateLength minimum="2" />
+                        </p:inputText>                      
+
+                        <p:outputLabel for="email" value="Email:" />
+                        <p:inputText id="email" value="#{clienteController.cliente.email}" label="Email" required="true">
+                            <f:validateLength minimum="2" />
+                            <f:validator validatorId="br.com.treinamentojsf.validator.EmailValidator"/>
+                        </p:inputText>
+                        
+                        <p:outputLabel for="telefone" value="Telefone:" />
+                        <p:inputMask id="telefone" value="#{clienteController.cliente.telefone}" mask="(99) 9999-9999"/>   
+
+                        <p:outputLabel for="dtNascimento" value="Dt. Nascimento:" />
+                        <p:calendar id="dtNascimento" value="#{clienteController.cliente.dataNascimento}" />
+                        
+                    </h:panelGrid>
+
+                    <p:commandButton value="Salvar"  action="#{clienteController.salvar()}" update="panel" icon="ui-icon-check" />
+                    <p:commandButton value="Buscar Lista" actionListener="#{clienteController.buscar()}" icon="ui-icon-check" immediate="true" update="formNavegacao" />
+                </p:panel>
+
+            </h:form>    
+            <h:form id="formNavegacao">
+                <ui:repeat value="#{clienteController.clientes}" var="cliente">
+                    <div>
+                        <span>#{cliente.nome}</span>
+                        <p:commandButton value="Editar" action="#{clienteController.getUrlEditar(cliente)}"/>
+                    </div>
+                </ui:repeat>
+            </h:form>
         </ui:define>
     </ui:composition>
 </html>

@@ -3,11 +3,11 @@ package br.com.treinamentojsf.entidade;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
-
 /**
  *
  * @author Bonifácio
  */
+
 public class Cliente implements Serializable, DatabaseEntity {
     
     private Long id;
@@ -89,6 +89,11 @@ public class Cliente implements Serializable, DatabaseEntity {
             return false;
         }
         return true;
+    }
+
+    @Override
+    public String toString() {
+        return "Cliente{" + "id=" + id + ", nome=" + nome + ", email=" + email + ", telefone=" + telefone + ", dataNascimento=" + dataNascimento + '}';
     }
     
     

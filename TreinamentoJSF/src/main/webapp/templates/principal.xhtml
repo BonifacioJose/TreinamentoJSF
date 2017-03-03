@@ -9,6 +9,7 @@
         <title>TreinamentoJSF</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>        
         <link rel="stylesheet" href="#{request.contextPath}/css/styles.css"/>
+        <ui:insert name="head"/>
     </h:head>    
     <h:body>
         <p:layout style="min-width:500px;min-height:220px;">
@@ -18,11 +19,10 @@
             <p:layoutUnit position="west" size="210" minSize="40" maxSize="210">
                 <h:form id="formMenu">
                     <p:menu>
-                        <p:submenu label="Páginas">
-                            <p:menuitem value="Home" outcome="/index.xhtml"/>
-                            <p:menuitem value="Página 1" outcome="/paginas/pagina1.xhtml"/>
-                            <p:menuitem value="Página 2" outcome="/paginas/pagina2.xhtml"/>
-                            <p:menuitem value="Página 3" outcome="/paginas/pagina3.xhtml"/>
+                        <p:submenu label="Cadastro">
+                            <p:menuitem value="Cliente" outcome="/index.xhtml"/>  
+                            <p:menuitem value="Contas a Pagar" outcome="/paginas/contaPagarPrincipal.xhtml"/>                           
+                            <p:menuitem value="Cliente e Conta" outcome="/paginas/clienteContaPagarPrincipal.xhtml"/>
                         </p:submenu>
                     </p:menu>
                 </h:form>
